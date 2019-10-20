@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+<head>
+<title>Personalised Ads
+</title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js">
+</script>
+<script>
+$("#slideshow > div:gt(0)").hide();
+
+setInterval(function() {
+  $('#slideshow > div:first')
+    .fadeOut(0)
+    .next()
+    .fadeIn(0)
+    .end()
+    .appendTo('#slideshow');
+}, 2000);
+function startup()
+{
+var age=20;
+var sex='f';
+	if (age>=1&&age<4)
+	{way="/static/images/ads/0-3";
+	}
+	else if(age>3 && age<10)
+	{way="/static/images/ads/4-9";
+	}
+	else if(age>9 && age<15)
+	{   if(sex=='m')
+	    {way="/static/images/ads/10-14/male";}
+	    else if(sex=='f')
+	    {way="/static/images/ads/10-14/female";}
+	} 
+	else if(age>14 && age<18)
+	{   if(sex=='m')
+		{way="/static/images/ads/15-17/male";}
+		else if(sex=='f')
+		{way="/static/images/ads/15-17/female";}
+	}
+	else if(age>17 && age<25)
+	{	if(sex=='m')
+		{way="/static/images/ads/18-24/male";}
+		else if(sex=='f')
+		{way="/static/images/ads/18-24/female";}
+	}
+	else if(age>24 && age<35)
+	{	if(sex=='m')
+		{way="/static/images/ads/25-34/male";}
+		else if(sex=='f')
+		{way="/static/images/ads/25-34/female";}
+	}
+	else if(age>34 && age<45)
+	{	if(sex=='m')
+		{way="/static/images/ads/35-44/male";}
+		else if(sex=='f')
+		{way="/static/images/ads/35-44/female";}
+	}
+	else if(age>44 && age<55)
+	{	if(sex=='m')
+		{way="/static/images/ads/45-54/male";}
+		else if(sex=='f')
+		{way="/static/images/ads/45-54/female";}
+	}
+	
+
+document.getElementById("first").src= way + "/1.png";
+document.getElementById("second").src= way+"/2.png";
+document.getElementById("third").src= way+"/3.png";
+}
+
+window.addEventListener('load', startup, false);
+</script>
+<style>
+* {
+		box-sizing: border-box;
+	}
+	
+body{
+	margin:0px;
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height:400px;
+  width:600px;
+}
+#slideshow {
+	padding-top:11%;
+    margin: 10px auto;
+	z-index:2;
+}
+
+#slideshow > div {
+display:none;
+}
+
+#toplogo{
+		width:39px; 
+		height:50.4px !important;
+		margin: 0px;
+		
+	}
+
+.column
+		{float:left;
+		width:14%;
+		box-shadow: -3px 1px 15px 7px #000000;
+		color: #fff ;
+		display:flex;
+		position:fixed;
+		padding:10px;
+		opacity:0.94;
+		z-index:999;}
+.left{width:68%;}	
+.right{width:10%;}
+	
+.topnav {
+		background-color: #000;
+		overflow: hidden;
+		opacity:0.97;
+		margin-left:68%;
+		position:fixed;
+		width:32%;
+		height:70px;
+		padding-top:11px;
+		padding-left:10px;
+		color: #fff;
+		z-index: 999;
+		box-shadow: 6px 1px 15px 7px #000000;
+	}
+	.topnav a {
+		float: left;
+		
+		text-align: center;
+		padding: 14px 45px;
+		text-decoration: none;
+		font-size: 18px;
+	}
+	.topnav a:hover {
+		background-color: #f01616;
+		color: black;
+		cursor:pointer;
+	}
+	.columnf{
+		width: 100%;
+		height: 10%;
+		box-shadow: 20px 1px 15px 7px #000000;
+		background-color: #333;
+		z-index:-1;
+	}
+	#head
+	{height:70px;
+		position:fixed;
+		color:white;}
+
+	#result
+	{
+		background-image: url(/static/images/capture_back.jpg);
+		background-size: cover;
+		height: 770px;
+
+		z-index: -5;
+	}
+</style>
+<body>
+<div id="result">
+	<div class="head" id="home">
+		<div class="column left" style="background-color:#000;">
+					&nbsp
+					<img src="/static/images/deep_faceup.png" id="toplogo" style="width='39px' height='50.4px''">
+					<p><em>&nbsp &nbsp FaceKart: Smarter Ad Predictions</p></em>
+		</div>
+		<div class="topnav">
+					<a class="active" onclick="scTo()" url="#home">Home</a>
+					<a url="#capture" onclick="scTo()">Capture</a>
+					<a url="#about" onclick="scTo()">About</a>	
+		</div>	
+		<div class="columnf " style="background-color:#333;">&nbsp
+		</div>
+	</div>	
+	<div id="slideshow">
+		<div>
+		<img id="first" src="/static/images/back2.png">
+		</div>
+		<div>
+		<img id="second" src="/static/images/back2.png">
+		</div>
+		<div>
+		<img id="third" src="/static/images/back2.png">
+		</div>
+	</div>
+</div>
+</body>
+</html>
